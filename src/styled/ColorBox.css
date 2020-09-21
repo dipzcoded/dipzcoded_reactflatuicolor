@@ -4,4 +4,67 @@ margin: 0 auto;
 display: inline-block;
 position: relative;
 cursor: pointer;
+margin-bottom: -4.4px;
 }
+
+.Colorbox__copybtn
+{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) ;
+    -webkit-transform:translate(-50%,-50%) ;
+    -moz-transform:translate(-50%,-50%) ;
+    -ms-transform:translate(-50%,-50%) ;
+    -o-transform:translate(-50%,-50%) ;
+    text-align: center;
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    font-size: 1rem;
+    line-height: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    opacity: 0;
+    transition: opacity .4s ease-in;
+    -webkit-transition: opacity .4s ease-in;
+    -moz-transition: opacity .4s ease-in;
+    -ms-transition: opacity .4s ease-in;
+    -o-transition: opacity .4s ease-in;
+}
+
+.Colorbox:hover .Colorbox__copybtn
+{
+    opacity: 1;
+}
+
+.Colorbox__boxctn {
+
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    padding: 0 0 10px 10px;
+    color: #000;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.Colorbox__seemore {
+    background: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    border: none;
+    right: 0px;
+    bottom: 0px;
+    color: #fff;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+

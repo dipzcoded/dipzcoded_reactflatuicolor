@@ -6,8 +6,13 @@ const ColorBox = ({bgColor, name}) => {
         <div style={{
             backgroundColor : bgColor
         }} className="Colorbox">
-            <span>MORE</span>
+            <div className="Colorbox__copy-container">
+                <div className="Colorbox__boxctn">
     <span>{name}</span>
+                </div>
+                <button className="Colorbox__copybtn">Copy</button>
+            </div>
+            <span className="Colorbox__seemore">More</span>
         </div>
     )
 }
