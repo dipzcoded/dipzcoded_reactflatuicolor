@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
+import seedPalette from "../seed";
+import { generatePalette } from "../colorHelpers";
 import "../styled/Palette.css";
 
-const Palette = ({ palette: { colors, paletteName, emoji } }) => {
+const Palette = ({ match }) => {
+  // finding the palette based on url params from the seed file
+  const paletteMatch = seedPalette.find(
+    (color) => color.id === match.params.id
+  );
+  // passing the match palette to generatePalette func to create shades of colors
+  const { colors, paletteName } = generatePalette(paletteMatch);
+
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState("hex");
 
