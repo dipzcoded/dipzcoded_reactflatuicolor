@@ -1,153 +1,148 @@
 .Colorbox {
-width: 20%; height: 25%;
-margin: 0 auto;
-display: inline-block;
-position: relative;
-cursor: pointer;
-margin-bottom: -4.4px;
+  width: 20%;
+  height: 25%;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: -4.4px;
 }
 
-.Colorbox__copybtn
-{
-    width: 100px;
-    height: 30px;
-    position: absolute;
-    display: inline-block;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%,-50%) ;
-    -webkit-transform:translate(-50%,-50%) ;
-    -moz-transform:translate(-50%,-50%) ;
-    -ms-transform:translate(-50%,-50%) ;
-    -o-transform:translate(-50%,-50%) ;
-    text-align: center;
-    outline: none;
-    background: rgba(255, 255, 255, 0.3);
-    font-size: 1rem;
-    line-height: 30px;
-    color: #fff;
-    text-transform: uppercase;
-    border: none;
-    opacity: 0;
-    transition: opacity .4s ease-in;
-    -webkit-transition: opacity .4s ease-in;
-    -moz-transition: opacity .4s ease-in;
-    -ms-transition: opacity .4s ease-in;
-    -o-transition: opacity .4s ease-in;
+.Colorbox__copybtn {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  text-align: center;
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  line-height: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+  -webkit-transition: opacity 0.4s ease-in;
+  -moz-transition: opacity 0.4s ease-in;
+  -ms-transition: opacity 0.4s ease-in;
+  -o-transition: opacity 0.4s ease-in;
 }
 
-.Colorbox:hover .Colorbox__copybtn
-{
-    opacity: 1;
+.Colorbox:hover .Colorbox__copybtn {
+  opacity: 1;
 }
 
 .Colorbox__boxctn {
-
-    position: absolute;
-    width: 100%;
-    left: 0px;
-    bottom: 0px;
-    padding: 0 0 10px 10px;
-    color: #000;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 12px;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  bottom: 0px;
+  padding: 0 0 10px 10px;
+  color: #000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 .Colorbox__seemore {
-    background: rgba(255, 255, 255, 0.3);
-    position: absolute;
-    border: none;
-    right: 0px;
-    bottom: 0px;
-    color: #fff;
-    width: 60px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  border: none;
+  right: 0px;
+  bottom: 0px;
+  color: #fff;
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  text-transform: uppercase;
 }
 
-.Colorbox__overlay
-{
-    opacity: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    transform: scale(0.1);
-    -webkit-transform: scale(0.1);
-    -moz-transform: scale(0.1);
-    -ms-transform: scale(0.1);
-    -o-transform: scale(0.1);
-    transition: transform 0.6s ease-in-out;
-    -webkit-transition: transform 0.6s ease-in-out;
-    -moz-transition: transform 0.6s ease-in-out;
-    -ms-transition: transform 0.6s ease-in-out;
-    -o-transition: transform 0.6s ease-in-out;
+.Colorbox__overlay {
+  opacity: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.1);
+  -webkit-transform: scale(0.1);
+  -moz-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  -o-transform: scale(0.1);
+  transition: transform 0.6s ease-in-out;
+  -webkit-transition: transform 0.6s ease-in-out;
+  -moz-transition: transform 0.6s ease-in-out;
+  -ms-transition: transform 0.6s ease-in-out;
+  -o-transition: transform 0.6s ease-in-out;
 }
 
-.Colorbox__overlay.show{
-    opacity: 1;
-    transform: scale(50);
-    -webkit-transform: scale(50);
-    -moz-transform: scale(50);
-    -ms-transform: scale(50);
-    -o-transform: scale(50);
-    z-index: 10;
-    position: absolute;
+.Colorbox__overlay.show {
+  opacity: 1;
+  transform: scale(50);
+  -webkit-transform: scale(50);
+  -moz-transform: scale(50);
+  -ms-transform: scale(50);
+  -o-transform: scale(50);
+  z-index: 10;
+  position: absolute;
 }
 
-.Colorbox__copymsg
-{
-     position: fixed;
-     left: 0;
-     right: 0;
-     top: 0;
-     bottom: 0;
-     display: flex;
-     flex-direction: column;
-     text-align: center;
-     align-items: center;
-     justify-content: center;
-     font-size: 4rem;
-     transform: scale(0.1) ;
-     -webkit-transform: scale(0.1) ;
-     -moz-transform: scale(0.1) ;
-     -ms-transform: scale(0.1) ;
-     -o-transform: scale(0.1) ;
-     color: #fff;
-     opacity: 0;
-     z-index: 0;
-     transition: all 0.4s ease-in-out;
-     -webkit-transition: all 0.4s ease-in-out;
-     -moz-transition: all 0.4s ease-in-out;
-     -ms-transition: all 0.4s ease-in-out;
-     -o-transition: all 0.4s ease-in-out;
+.Colorbox__copymsg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  transform: scale(0.1);
+  -webkit-transform: scale(0.1);
+  -moz-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  -o-transform: scale(0.1);
+  color: #fff;
+  opacity: 0;
+  z-index: 0;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
 }
 
-.Colorbox__copymsg.show
-{
-    opacity: 1;
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    z-index: 25;
-    transition-delay: 0.3s;
+.Colorbox__copymsg.show {
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  z-index: 25;
+  transition-delay: 0.3s;
 }
 
 .Colorbox__copymsg h1 {
-    font-weight: 400;
-    text-shadow: 1px 2px #000;
-    background-color: rgba(255, 255,255,0.2);
-    margin-bottom: 0;
-    padding: 1rem;
-    width: 100%;
+  font-weight: 400;
+  text-shadow: 1px 2px #000;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 0;
+  padding: 1rem;
+  width: 100%;
 }
 
 .Colorbox__copymsg p {
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: 100;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 100;
 }
