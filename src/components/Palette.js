@@ -11,7 +11,7 @@ const Palette = ({ match }) => {
     (color) => color.id === match.params.id
   );
   // passing the match palette to generatePalette func to create shades of colors
-  const { colors, paletteName } = generatePalette(paletteMatch);
+  const { colors, paletteName, emoji } = generatePalette(paletteMatch);
 
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState("hex");
@@ -44,7 +44,7 @@ const Palette = ({ match }) => {
       {/* Footer Component */}
       <footer className="Palette__footer">
         {paletteName}
-        {/* <span className="Palette__emoji">{emoji}</span> */}
+        <span className="Palette__emoji">{emoji}</span>
       </footer>
     </div>
   );
