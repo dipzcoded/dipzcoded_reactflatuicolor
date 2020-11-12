@@ -9,7 +9,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ level, onChangeLevel, onSelectChange }) => {
+const Navbar = ({ level, onChangeLevel, onSelectChange, showSlider }) => {
   const [format, setFormat] = useState("hex");
   const [open, setOpen] = useState(false);
 
@@ -28,18 +28,20 @@ const Navbar = ({ level, onChangeLevel, onSelectChange }) => {
         <Link to="/">reactcolorpicker</Link>
       </div>
       {/* slider component */}
-      <div className="Navbar__slider-container">
-        <span>Level : {level}</span>
-        <div className="Navbar__slider">
-          <Slider
-            defaultValue={level}
-            min={100}
-            max={900}
-            step={100}
-            onAfterChange={onChangeLevel}
-          />
+      {showSlider && (
+        <div className="Navbar__slider-container">
+          <span>Level : {level}</span>
+          <div className="Navbar__slider">
+            <Slider
+              defaultValue={level}
+              min={100}
+              max={900}
+              step={100}
+              onAfterChange={onChangeLevel}
+            />
+          </div>
         </div>
-      </div>
+      )}
       {/* Select Container */}
       <div className="Navbar__selectContainer">
         <Select value={format} onChange={onFormatChange}>

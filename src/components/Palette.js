@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
+import PaletteFooter from "./PaletteFooter";
 import seedPalette from "../seed";
 import { generatePalette } from "../colorHelpers";
 import "../styled/Palette.css";
@@ -44,16 +45,14 @@ const Palette = ({ match }) => {
         level={level}
         onChangeLevel={changeLevel}
         onSelectChange={onSelectChange}
+        showSlider={true}
       />
       <div className="Palette-colors">
         {/* Colorbox Component */}
         {colorBoxes}
       </div>
       {/* Footer Component */}
-      <footer className="Palette__footer">
-        {paletteName}
-        <span className="Palette__emoji">{emoji}</span>
-      </footer>
+      <PaletteFooter paletteName={paletteName} emoji={emoji} />
     </div>
   );
 };
