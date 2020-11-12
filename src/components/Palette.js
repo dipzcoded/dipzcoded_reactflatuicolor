@@ -10,8 +10,9 @@ const Palette = ({ match }) => {
   const paletteMatch = seedPalette.find(
     (color) => color.id === match.params.id
   );
+  console.log(paletteMatch);
   // passing the match palette to generatePalette func to create shades of colors
-  const { colors, paletteName, emoji } = generatePalette(paletteMatch);
+  const { colors, paletteName, emoji, id } = generatePalette(paletteMatch);
 
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState("hex");
@@ -26,7 +27,14 @@ const Palette = ({ match }) => {
 
   // creating colorboxes
   const colorBoxes = colors[level].map((item) => (
-    <ColorBox bgColor={item[format]} key={item.id} name={item.name} />
+    <ColorBox
+      bgColor={item[format]}
+      key={item.id}
+      name={item.name}
+      colorId={item.id}
+      paletteId={id}
+      showLink={true}
+    />
   ));
 
   return (

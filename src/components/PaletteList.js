@@ -1,6 +1,5 @@
 import React from "react";
 import seedPalette from "../seed";
-import { Link } from "react-router-dom";
 import MiniPalette from "./MiniPalette";
 import { withStyles } from "@material-ui/core/styles";
 

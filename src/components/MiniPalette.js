@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { withStyles } from "@material-ui/core/styles";
+import { withRouter } from "react-router-dom";
 
 const styles = {
   root: {
@@ -32,7 +33,7 @@ const styles = {
   },
   emojis: {
     marginLeft: "0.5rem",
-    fontSize: "1.5rem",
+    fontSize: "1.1rem",
   },
   miniColor: {
     height: "25%",
@@ -46,7 +47,8 @@ const styles = {
 
 const MiniPalette = ({
   classes: { root, color, title, emojis, miniColor },
-  palette: { paletteName, emoji, colors },
+  palette: { paletteName, emoji, colors, id },
+  history,
 }) => {
   const miniColorsBoxes = colors.map((color) => (
     <div
@@ -58,17 +60,21 @@ const MiniPalette = ({
     />
   ));
 
+  const onClick = (e) => {
+    history.push(`/palette/${id}`);
+  };
+
   return (
     <Fragment>
-      <div className={root}>
+      <div className={root} onClick={onClick}>
         <div className={color}>{miniColorsBoxes}</div>
         <h5 className={title}>
           {" "}
-          {paletteName} <span>{emoji}</span>
+          {paletteName} <span className={emojis}>{emoji}</span>
         </h5>
       </div>
     </Fragment>
   );
 };
 
-export default withStyles(styles)(MiniPalette);
+export default withStyles(styles)(withRouter(MiniPalette));
