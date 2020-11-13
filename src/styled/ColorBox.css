@@ -8,7 +8,16 @@
   margin-bottom: -4.4px;
 }
 
-.Colorbox__copybtn {
+.Colorbox.go-back {
+  background-color: #000;
+}
+
+.SingleColorPalette .Colorbox {
+  height: 50%;
+}
+
+.Colorbox__copybtn,
+.back-button {
   width: 100px;
   height: 30px;
   position: absolute;
@@ -34,6 +43,10 @@
   -moz-transition: opacity 0.4s ease-in;
   -ms-transition: opacity 0.4s ease-in;
   -o-transition: opacity 0.4s ease-in;
+}
+
+.back-button {
+  opacity: 1;
 }
 
 .Colorbox:hover .Colorbox__copybtn {

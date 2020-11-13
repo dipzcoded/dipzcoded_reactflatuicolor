@@ -11,7 +11,7 @@ const Palette = ({ match }) => {
   const paletteMatch = seedPalette.find(
     (color) => color.id === match.params.id
   );
-  console.log(paletteMatch);
+
   // passing the match palette to generatePalette func to create shades of colors
   const { colors, paletteName, emoji, id } = generatePalette(paletteMatch);
 

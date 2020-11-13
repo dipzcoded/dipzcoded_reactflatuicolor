@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { generatePalette } from "../colorHelpers";
 import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
 import Navbar from "./Navbar";
 import seedPalette from "../seed";
 import "../styled/Palette.css";
+import "../styled/ColorBox.css";
 
 const SingleColorPalette = ({ match }) => {
   const [format, setFormat] = useState("hex");
@@ -28,8 +29,6 @@ const SingleColorPalette = ({ match }) => {
   const { colors, paletteName, emoji } = generatePalette(paletteMatch);
   colorShades = gatherShades(colors, match.params.colorId);
 
-  console.log(colorShades);
-
   const colorBoxes = colorShades.map((color) => (
     <ColorBox
       key={color.name}
@@ -44,12 +43,25 @@ const SingleColorPalette = ({ match }) => {
   };
 
   return (
-    <div className="Palette">
+    <div className="SingleColorPalette Palette">
       {/* Navbar Component */}
       <Navbar onSelectChange={onSelectChange} showSlider={false} />
-      <h1>This is a single color pages</h1>
       {/* Color boxes component */}
-      <div className="Palette-colors">{colorBoxes}</div>
+      <div className="Palette-colors">
+        {colorBoxes}
+        {/* Add a go back button */}
+        <div className="go-back Colorbox">
+          <Link
+            style={{
+              textDecoration: "none",
+            }}
+            to={`/palette/${match.params.paletteId}`}
+            className="back-button"
+          >
+            Go Back
+          </Link>
+        </div>
+      </div>
       {/* Palette Footer */}
       <PaletteFooter paletteName={paletteName} emoji={emoji} />
     </div>
