@@ -1,4 +1,4 @@
-.Colorbox {
+/* .Colorbox {
   width: 20%;
   height: 25%;
   margin: 0 auto;
@@ -6,17 +6,17 @@
   position: relative;
   cursor: pointer;
   margin-bottom: -4.4px;
-}
+} */
 
-.Colorbox.go-back {
+/* .Colorbox.go-back {
   background-color: #000;
-}
+} */
 
-.SingleColorPalette .Colorbox {
+/* .SingleColorPalette .Colorbox {
   height: 50%;
-}
+} */
 
-.Colorbox__copybtn,
+/* .Colorbox__copybtn,
 .back-button {
   width: 100px;
   height: 30px;
@@ -47,13 +47,13 @@
 
 .back-button {
   opacity: 1;
-}
+} */
 
-.Colorbox:hover .Colorbox__copybtn {
+/* .Colorbox:hover .Colorbox__copybtn {
   opacity: 1;
-}
+} */
 
-.Colorbox__boxctn {
+/* .Colorbox__boxctn {
   position: absolute;
   width: 100%;
   left: 0px;
@@ -63,9 +63,9 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 12px;
-}
+} */
 
-.Colorbox__seemore {
+/* .Colorbox__seemore {
   background: rgba(255, 255, 255, 0.3);
   position: absolute;
   border: none;
@@ -77,9 +77,9 @@
   text-align: center;
   line-height: 30px;
   text-transform: uppercase;
-}
+} */
 
-.Colorbox__overlay {
+/* .Colorbox__overlay {
   opacity: 0;
   z-index: 0;
   width: 100%;
@@ -94,9 +94,9 @@
   -moz-transition: transform 0.6s ease-in-out;
   -ms-transition: transform 0.6s ease-in-out;
   -o-transition: transform 0.6s ease-in-out;
-}
+} */
 
-.Colorbox__overlay.show {
+/* .Colorbox__overlay.show {
   opacity: 1;
   transform: scale(50);
   -webkit-transform: scale(50);
@@ -105,9 +105,9 @@
   -o-transform: scale(50);
   z-index: 10;
   position: absolute;
-}
+} */
 
-.Colorbox__copymsg {
+/* .Colorbox__copymsg {
   position: fixed;
   left: 0;
   right: 0;
@@ -132,17 +132,17 @@
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
-}
+} */
 
-.light-text {
+/* .light-text {
   color: #fff;
-}
+} */
 
-.dark-text {
-  color: rgba(0, 0, 0, 0.5);
-}
+/* .dark-text {
+  color: rgba(0, 0, 0, 0.5); */
+/* } */
 
-.Colorbox__copymsg.show {
+/* .Colorbox__copymsg.show {
   opacity: 1;
   transform: scale(1);
   -webkit-transform: scale(1);
@@ -151,19 +151,19 @@
   -o-transform: scale(1);
   z-index: 25;
   transition-delay: 0.3s;
-}
+} */
 
-.Colorbox__copymsg h1 {
+/* .Colorbox__copymsg h1 {
   font-weight: 400;
   text-shadow: 1px 2px #000;
   background-color: rgba(255, 255, 255, 0.2);
   margin-bottom: 0;
   padding: 1rem;
   width: 100%;
-}
+} */
 
-.Colorbox__copymsg p {
+/* .Colorbox__copymsg p {
   font-size: 2rem;
   text-transform: uppercase;
   font-weight: 100;
-}
+} */

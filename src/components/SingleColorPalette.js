@@ -5,10 +5,45 @@ import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
 import Navbar from "./Navbar";
 import seedPalette from "../seed";
+import { withStyles } from "@material-ui/core/styles";
 import "../styled/Palette.css";
 import "../styled/ColorBox.css";
 
-const SingleColorPalette = ({ match }) => {
+const styles = {
+  backBtn: {
+    width: "100px",
+    height: "30px",
+    position: "absolute",
+    display: "inline-block",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    textAlign: "center",
+    outline: "none",
+    background: "rgba(255, 255, 255, 0.3)",
+    fontSize: "1rem",
+    lineHeight: "30px",
+    textTransform: "uppercase",
+    border: "none",
+    opacity: 1,
+    transition: "opacity 0.4s ease-in",
+    color: "#fff",
+    textDecoration: "none",
+  },
+
+  goBack: {
+    backgroundColor: "#000",
+    width: "20%",
+    height: "50%",
+    margin: "0 auto",
+    display: "inline-block",
+    position: "relative",
+    cursor: "pointer",
+    marginBottom: "-4.4px",
+  },
+};
+
+const SingleColorPalette = ({ classes: { backBtn, goBack }, match }) => {
   const [format, setFormat] = useState("hex");
 
   const paletteMatch = seedPalette.find(
@@ -51,14 +86,8 @@ const SingleColorPalette = ({ match }) => {
       <div className="Palette-colors">
         {colorBoxes}
         {/* Add a go back button */}
-        <div className="go-back Colorbox">
-          <Link
-            style={{
-              textDecoration: "none",
-            }}
-            to={`/palette/${match.params.paletteId}`}
-            className="back-button"
-          >
+        <div className={goBack}>
+          <Link to={`/palette/${match.params.paletteId}`} className={backBtn}>
             Go Back
           </Link>
         </div>
@@ -69,4 +98,4 @@ const SingleColorPalette = ({ match }) => {
   );
 };
 
-export default withRouter(SingleColorPalette);
+export default withStyles(styles)(withRouter(SingleColorPalette));
