@@ -35,6 +35,7 @@ const SingleColorPalette = ({ match }) => {
       name={color.name}
       bgColor={color[format]}
       showLink={false}
+      biggerSize="50%"
     />
   ));
 
