@@ -5,18 +5,7 @@ import PaletteFooter from "./PaletteFooter";
 import seedPalette from "../seed";
 import { generatePalette } from "../colorHelpers";
 import { withStyles } from "@material-ui/core/styles";
-
-const styles = {
-  palette: {
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-  },
-
-  paletteColors: {
-    height: "90%",
-  },
-};
+import styles from "../jss/PaletteStyle";
 
 const Palette = ({ classes: { palette, paletteColors }, match }) => {
   // finding the palette based on url params from the seed file
