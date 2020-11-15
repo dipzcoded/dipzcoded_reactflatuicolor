@@ -19,6 +19,11 @@ export default {
     width: "100%",
     justifyContent: "space-between",
     color: "white",
+    alignItems: "center",
+    color: "#fff",
+    "& a": {
+      color: "#fff",
+    },
   },
   paletteGrid: {
     boxSizing: "border-box",
