@@ -6,10 +6,17 @@ import PaletteFooter from "./PaletteFooter";
 import Navbar from "./Navbar";
 import seedPalette from "../seed";
 import { withStyles } from "@material-ui/core/styles";
-import "../styled/Palette.css";
-import "../styled/ColorBox.css";
 
 const styles = {
+  palette: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+  },
+
+  paletteColors: {
+    height: "90%",
+  },
   backBtn: {
     width: "100px",
     height: "30px",
@@ -43,7 +50,10 @@ const styles = {
   },
 };
 
-const SingleColorPalette = ({ classes: { backBtn, goBack }, match }) => {
+const SingleColorPalette = ({
+  classes: { backBtn, goBack, palette, paletteColors },
+  match,
+}) => {
   const [format, setFormat] = useState("hex");
 
   const paletteMatch = seedPalette.find(
@@ -79,11 +89,11 @@ const SingleColorPalette = ({ classes: { backBtn, goBack }, match }) => {
   };
 
   return (
-    <div className="SingleColorPalette Palette">
+    <div className={palette}>
       {/* Navbar Component */}
       <Navbar onSelectChange={onSelectChange} showSlider={false} />
       {/* Color boxes component */}
-      <div className="Palette-colors">
+      <div className={paletteColors}>
         {colorBoxes}
         {/* Add a go back button */}
         <div className={goBack}>

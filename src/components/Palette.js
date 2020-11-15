@@ -4,9 +4,21 @@ import Navbar from "./Navbar";
 import PaletteFooter from "./PaletteFooter";
 import seedPalette from "../seed";
 import { generatePalette } from "../colorHelpers";
-import "../styled/Palette.css";
+import { withStyles } from "@material-ui/core/styles";
 
-const Palette = ({ match }) => {
+const styles = {
+  palette: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+  },
+
+  paletteColors: {
+    height: "90%",
+  },
+};
+
+const Palette = ({ classes: { palette, paletteColors }, match }) => {
   // finding the palette based on url params from the seed file
   const paletteMatch = seedPalette.find(
     (color) => color.id === match.params.id
@@ -39,7 +51,7 @@ const Palette = ({ match }) => {
   ));
 
   return (
-    <div className="Palette">
+    <div className={palette}>
       {/* Navbar Component */}
       <Navbar
         level={level}
@@ -47,7 +59,7 @@ const Palette = ({ match }) => {
         onSelectChange={onSelectChange}
         showSlider={true}
       />
-      <div className="Palette-colors">
+      <div className={paletteColors}>
         {/* Colorbox Component */}
         {colorBoxes}
       </div>
@@ -57,4 +69,4 @@ const Palette = ({ match }) => {
   );
 };
 
-export default Palette;
+export default withStyles(styles)(Palette);
