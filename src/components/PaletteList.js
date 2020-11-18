@@ -11,7 +11,7 @@ const PaletteList = ({ classes: { root, container, nav, paletteGrid } }) => {
       <div className={container}>
         <nav className={nav}>
           <h1>React Colors</h1>
-          <Link to="/palette/new">Create Palette</Link>
+          <Link to="/palette/new">Create Palettes</Link>
         </nav>
         <div className={paletteGrid}>
           {seedPalette.map((palette) => (
