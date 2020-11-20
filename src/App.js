@@ -11,8 +11,6 @@ function App() {
   const savePalette = (newPalettes) => {
     setPalettes([...palettes, newPalettes]);
   };
-
-  console.log(palettes);
   return (
     <Switch>
       <Route
