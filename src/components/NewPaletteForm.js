@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NewPaletteForm = ({ savePalette, history }) => {
+const NewPaletteForm = ({ savePalette, history, palettes }) => {
   // useeffects
 
   const classes = useStyles();
@@ -83,7 +83,12 @@ const NewPaletteForm = ({ savePalette, history }) => {
   const [open, setOpen] = useState(true);
   const [currentColor, setColor] = useState("purple");
   const [colors, setArrcolors] = useState([]);
-  const [newName, setNewName] = useState("");
+  const [pcName, setPC] = useState({
+    colorName: "",
+    palettesName: "",
+  });
+
+  const { colorName, palettesName } = pcName;
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -98,20 +103,19 @@ const NewPaletteForm = ({ savePalette, history }) => {
   };
 
   const addNewColor = () => {
-    const newColor = { color: currentColor, name: newName };
+    const newColor = { color: currentColor, name: colorName };
     setArrcolors([...colors, newColor]);
-    setNewName("");
+    setPC({ colorName: "" });
   };
 
   const onChange = (e) => {
-    setNewName(e.target.value);
+    setPC({ ...pcName, [e.target.name]: e.target.value });
   };
 
   const onSavePalette = () => {
-    let newName = "New Test Palette";
     const newPalette = {};
-    newPalette.paletteName = newName;
-    newPalette.id = newName.toLowerCase().replace(/ /g, "-");
+    newPalette.paletteName = palettesName;
+    newPalette.id = palettesName.toLowerCase().replace(/ /g, "-");
     newPalette.colors = colors;
     savePalette(newPalette);
     history.push("/");
@@ -142,6 +146,22 @@ const NewPaletteForm = ({ savePalette, history }) => {
       return true;
     });
   });
+
+  useEffect(() => {
+    ValidatorForm.addValidationRule("isPaletteUnique", (value) => {
+      if (palettes.length !== 0 && value !== undefined) {
+        const paletteFound = palettes.find(
+          ({ paletteName }) => paletteName.toLowerCase() === value.toLowerCase()
+        );
+        if (paletteFound) {
+          return false;
+        }
+        return true;
+      }
+
+      return true;
+    });
+  });
   //   console.log(color);
   return (
     <div className={classes.root}>
@@ -166,9 +186,22 @@ const NewPaletteForm = ({ savePalette, history }) => {
           <Typography variant="h6" noWrap>
             Persistent drawer
           </Typography>
-          <Button variant="contained" color="primary" onClick={onSavePalette}>
-            Save Palette
-          </Button>
+          <ValidatorForm onSubmit={onSavePalette}>
+            <TextValidator
+              label="Palette Name"
+              value={palettesName}
+              onChange={onChange}
+              name="palettesName"
+              validators={["required", "isPaletteUnique"]}
+              errorMessages={[
+                "Enter Palette Name",
+                "palette found with that name",
+              ]}
+            />
+            <Button variant="contained" color="primary" type="submit">
+              Save Palette
+            </Button>
+          </ValidatorForm>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -199,7 +232,8 @@ const NewPaletteForm = ({ savePalette, history }) => {
         <ChromePicker color={currentColor} onChangeComplete={onChangeColor} />
         <ValidatorForm onSubmit={addNewColor}>
           <TextValidator
-            value={newName}
+            value={colorName}
+            name="colorName"
             onChange={onChange}
             validators={["required", "isColorNameUnique", "isColorUnique"]}
             errorMessages={[
