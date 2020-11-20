@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import seedPalette from "../seed";
 import MiniPalette from "./MiniPalette";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../jss/PaletteListStyle";
 
-const PaletteList = ({ classes: { root, container, nav, paletteGrid } }) => {
+const PaletteList = ({
+  classes: { root, container, nav, paletteGrid },
+  palettes,
+}) => {
   return (
     <div className={root}>
       <div className={container}>
@@ -14,7 +16,7 @@ const PaletteList = ({ classes: { root, container, nav, paletteGrid } }) => {
           <Link to="/palette/new">Create Palettes</Link>
         </nav>
         <div className={paletteGrid}>
-          {seedPalette.map((palette) => (
+          {palettes.map((palette) => (
             <MiniPalette palette={palette} />
           ))}
         </div>

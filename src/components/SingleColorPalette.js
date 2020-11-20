@@ -4,17 +4,17 @@ import { generatePalette } from "../colorHelpers";
 import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
 import Navbar from "./Navbar";
-import seedPalette from "../seed";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../jss/PaletteStyle";
 
 const SingleColorPalette = ({
   classes: { backBtn, goBack, palette, paletteColors },
   match,
+  palettes,
 }) => {
   const [format, setFormat] = useState("hex");
 
-  const paletteMatch = seedPalette.find(
+  const paletteMatch = palettes.find(
     (color) => color.id === match.params.paletteId
   );
 

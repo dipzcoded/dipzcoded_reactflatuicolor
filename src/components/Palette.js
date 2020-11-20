@@ -2,16 +2,13 @@ import React, { useState } from "react";
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
 import PaletteFooter from "./PaletteFooter";
-import seedPalette from "../seed";
 import { generatePalette } from "../colorHelpers";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../jss/PaletteStyle";
 
-const Palette = ({ classes: { palette, paletteColors }, match }) => {
+const Palette = ({ classes: { palette, paletteColors }, match, palettes }) => {
   // finding the palette based on url params from the seed file
-  const paletteMatch = seedPalette.find(
-    (color) => color.id === match.params.id
-  );
+  const paletteMatch = palettes.find((color) => color.id === match.params.id);
 
   // passing the match palette to generatePalette func to create shades of colors
   const { colors, paletteName, emoji, id } = generatePalette(paletteMatch);

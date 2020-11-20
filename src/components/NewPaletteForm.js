@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NewPaletteForm = () => {
+const NewPaletteForm = ({ savePalette, history }) => {
   // useeffects
 
   const classes = useStyles();
@@ -105,6 +105,16 @@ const NewPaletteForm = () => {
 
   const onChange = (e) => {
     setNewName(e.target.value);
+  };
+
+  const onSavePalette = () => {
+    let newName = "New Test Palette";
+    const newPalette = {};
+    newPalette.paletteName = newName;
+    newPalette.id = newName.toLowerCase().replace(/ /g, "-");
+    newPalette.colors = colors;
+    savePalette(newPalette);
+    history.push("/");
   };
 
   useEffect(() => {
@@ -141,6 +151,7 @@ const NewPaletteForm = () => {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
+        color="default"
       >
         <Toolbar>
           <IconButton
@@ -155,6 +166,9 @@ const NewPaletteForm = () => {
           <Typography variant="h6" noWrap>
             Persistent drawer
           </Typography>
+          <Button variant="contained" color="primary" onClick={onSavePalette}>
+            Save Palette
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
