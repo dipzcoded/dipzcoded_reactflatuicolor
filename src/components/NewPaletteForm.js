@@ -19,32 +19,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
   },
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  hide: {
-    display: "none",
-  },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
   },
   drawerPaper: {
     width: drawerWidth,
+    display: "flex",
+    alignItems: "center",
   },
   drawerHeader: {
     display: "flex",
@@ -70,6 +52,20 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
+  },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
+    width: "90%",
+  },
+  buttons: {
+    width: "100%",
+  },
+  button: {
+    width: "50%",
   },
 }));
 
@@ -186,7 +182,6 @@ const NewPaletteForm = ({ savePalette, history, palettes, max }) => {
       {/*nav bar  */}
       <PaletteFormNav
         open={open}
-        classes={classes}
         handleDrawerOpen={handleDrawerOpen}
         onSavePalette={onSavePalette}
         onChange={onChange}
@@ -207,29 +202,39 @@ const NewPaletteForm = ({ savePalette, history, palettes, max }) => {
           </IconButton>
         </div>
         <Divider />
-        <Typography variant="h4">Design Your Palette</Typography>
-        <div>
-          <Button variant="contained" color="secondary" onClick={onClear}>
-            Clear Palette
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={onRandom}
-            disabled={paletteIsFull}
-          >
-            Random Color
-          </Button>
+        <div className={classes.container}>
+          <Typography variant="h4" gutterBottom>
+            Design Your Palette
+          </Typography>
+          <div className={classes.buttons}>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={onClear}
+              className={classes.button}
+            >
+              Clear Palette
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={onRandom}
+              disabled={paletteIsFull}
+              className={classes.button}
+            >
+              Random Color
+            </Button>
+          </div>
+          {/* chrome picker  */}
+          <ColorPicker
+            paletteIsFull={paletteIsFull}
+            currentColor={currentColor}
+            onChangeColor={onChangeColor}
+            addNewColor={addNewColor}
+            colorName={colorName}
+            onChange={onChange}
+          />
         </div>
-        {/* chrome picker  */}
-        <ColorPicker
-          paletteIsFull={paletteIsFull}
-          currentColor={currentColor}
-          onChangeColor={onChangeColor}
-          addNewColor={addNewColor}
-          colorName={colorName}
-          onChange={onChange}
-        />
       </Drawer>
       <main
         className={clsx(classes.content, {
