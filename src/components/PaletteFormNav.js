@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     }),
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -40,7 +41,12 @@ const useStyles = makeStyles((theme) => ({
   hide: {
     display: "none",
   },
-  navBtns: {},
+  navBtns: {
+    marginRight: "1rem",
+  },
+  button: {
+    margin: "0 0.5rem",
+  },
 }));
 
 const PaletteFormNav = ({
@@ -50,20 +56,32 @@ const PaletteFormNav = ({
   onChange,
   palettesName,
 }) => {
-  const { appBar, appBarShift, hide, menuButton, navBtns, root } = useStyles();
+  const {
+    appBar,
+    appBarShift,
+    hide,
+    menuButton,
+    navBtns,
+    root,
+    button,
+  } = useStyles();
   // const theme = useTheme();
+  const [formShowing, setFormShowing] = useState(false);
 
   const onClick = () => {
     handleDrawerOpen();
   };
 
-  const onSubmit = (e) => {
-    // e.prevendDefault();
-    onSavePalette();
-  };
-
   const onChangeVal = (e) => {
     onChange(e);
+  };
+
+  const showFormDailog = (e) => {
+    setFormShowing(true);
+  };
+
+  const hideFormDialog = (e) => {
+    setFormShowing(false);
   };
 
   return (
@@ -92,18 +110,35 @@ const PaletteFormNav = ({
         </Toolbar>
         <div className={navBtns}>
           {/* */}
-          <PaletteMetalForm
-            onChangeVal={onChangeVal}
-            onSubmit={onSubmit}
-            palettesName={palettesName}
-          />
-          <Link to="/">
-            <Button variant="contained" color="secondary">
+
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            <Button className={button} variant="contained" color="secondary">
               Go Back
             </Button>
           </Link>
+          <Button
+            className={button}
+            variant="contained"
+            color="primary"
+            onClick={showFormDailog}
+          >
+            Save
+          </Button>
         </div>
       </AppBar>
+      {formShowing && (
+        <PaletteMetalForm
+          onChangeVal={onChangeVal}
+          onSavePalette={onSavePalette}
+          palettesName={palettesName}
+          hideFormDialog={hideFormDialog}
+        />
+      )}
     </div>
   );
 };

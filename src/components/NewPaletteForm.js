@@ -105,14 +105,14 @@ const NewPaletteForm = ({ savePalette, history, palettes, max }) => {
     setPC({ ...pcName, [e.target.name]: e.target.value });
   };
 
-  const onSavePalette = () => {
+  const onSavePalette = (emoji) => {
     const newPalette = {};
     newPalette.paletteName = palettesName;
     newPalette.id = palettesName.toLowerCase().replace(/ /g, "-");
+    newPalette.emoji = emoji;
     newPalette.colors = colors;
     savePalette(newPalette);
     history.push("/");
-    console.log("hii");
   };
 
   useEffect(() => {
