@@ -7,9 +7,9 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Link } from "react-router-dom";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import PaletteMetalForm from "./PaletteMetalForm";
 
 const drawerWidth = 400;
 
@@ -51,7 +51,7 @@ const PaletteFormNav = ({
   palettesName,
 }) => {
   const { appBar, appBarShift, hide, menuButton, navBtns, root } = useStyles();
-  const theme = useTheme();
+  // const theme = useTheme();
 
   const onClick = () => {
     handleDrawerOpen();
@@ -91,22 +91,12 @@ const PaletteFormNav = ({
           </Typography>
         </Toolbar>
         <div className={navBtns}>
-          <ValidatorForm onSubmit={onSubmit}>
-            <TextValidator
-              label="Palette Name"
-              value={palettesName}
-              onChange={onChangeVal}
-              name="palettesName"
-              validators={["required", "isPaletteUnique"]}
-              errorMessages={[
-                "Enter Palette Name",
-                "palette found with that name",
-              ]}
-            />
-            <Button variant="contained" color="primary" type="submit">
-              Save Palette
-            </Button>
-          </ValidatorForm>
+          {/* */}
+          <PaletteMetalForm
+            onChangeVal={onChangeVal}
+            onSubmit={onSubmit}
+            palettesName={palettesName}
+          />
           <Link to="/">
             <Button variant="contained" color="secondary">
               Go Back

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NewPaletteForm = ({ savePalette, history, palettes, max }) => {
   const classes = useStyles();
-  const theme = useTheme();
+  // const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [currentColor, setColor] = useState("purple");
   const [colors, setArrcolors] = useState(palettes[0].colors);
