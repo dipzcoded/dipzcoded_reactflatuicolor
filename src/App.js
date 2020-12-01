@@ -24,6 +24,8 @@ function App() {
     if (localStorage.palettes) {
       localStorage.removeItem("palettes");
       localStorage.setItem("palettes", JSON.stringify(palettes));
+    } else {
+      localStorage.setItem("palettes", JSON.stringify(palettes));
     }
   };
 
@@ -31,7 +33,7 @@ function App() {
     if (palettes) {
       syncToLocal();
     }
-  }, [palettes]);
+  }, [palettes, syncToLocal]);
 
   return (
     <Switch>
