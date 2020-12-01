@@ -5,12 +5,12 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import PaletteMetalForm from "./PaletteMetalForm";
 import styles from "../jss/PaletteFormNavStyles";
+import AddToPhotosIcon from "@material-ui/icons/AddToPhotos";
 
 const PaletteFormNav = ({
   open,
@@ -56,7 +56,7 @@ const PaletteFormNav = ({
             edge="start"
             className={clsx(menuButton, open && hide)}
           >
-            <MenuIcon />
+            <AddToPhotosIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
             Create A Palette
