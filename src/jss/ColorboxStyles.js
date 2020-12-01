@@ -16,11 +16,11 @@ export default {
     },
     [sizes.down("lg")]: {
       width: "25%",
-      height: ({ biggerSize }) => (biggerSize ? biggerSize : "20%"),
+      height: ({ biggerSize }) => (biggerSize ? "33.333%" : "20%"),
     },
     [sizes.down("md")]: {
       width: "50%",
-      height: ({ biggerSize }) => (biggerSize ? biggerSize : "10%"),
+      height: ({ biggerSize }) => (biggerSize ? "20%" : "10%"),
     },
     [sizes.down("xs")]: {
       width: "100%",
@@ -30,6 +30,9 @@ export default {
   copyText: {
     color: ({ bgColor }) =>
       Chroma(bgColor).luminance() >= 0.72 ? "rgba(0,0,0,0.65)" : "#fff",
+    [sizes.down("xs")]: {
+      fontSize: "4rem",
+    },
   },
 
   colorName: {
@@ -122,6 +125,9 @@ export default {
       marginBottom: "0",
       padding: "1rem",
       width: "100%",
+      [sizes.down("xs")]: {
+        fontSize: "6rem",
+      },
     },
   },
 
