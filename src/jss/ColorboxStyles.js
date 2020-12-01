@@ -1,4 +1,5 @@
 import Chroma from "chroma-js";
+import sizes from "./mediaSizes";
 export default {
   colorBox: {
     backgroundColor: ({ bgColor }) => bgColor,
@@ -12,6 +13,18 @@ export default {
 
     "&:hover button": {
       opacity: 1,
+    },
+    [sizes.down("lg")]: {
+      width: "25%",
+      height: ({ biggerSize }) => (biggerSize ? biggerSize : "20%"),
+    },
+    [sizes.down("md")]: {
+      width: "50%",
+      height: ({ biggerSize }) => (biggerSize ? biggerSize : "10%"),
+    },
+    [sizes.down("xs")]: {
+      width: "100%",
+      height: ({ biggerSize }) => (biggerSize ? "10%" : "5%"),
     },
   },
   copyText: {

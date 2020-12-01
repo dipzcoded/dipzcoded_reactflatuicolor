@@ -7,6 +7,7 @@ import styles from "../jss/PaletteListStyle";
 const PaletteList = ({
   classes: { root, container, nav, paletteGrid },
   palettes,
+  deletePalette,
 }) => {
   return (
     <div className={root}>
@@ -17,7 +18,7 @@ const PaletteList = ({
         </nav>
         <div className={paletteGrid}>
           {palettes.map((palette) => (
-            <MiniPalette palette={palette} />
+            <MiniPalette palette={palette} deletePalette={deletePalette} />
           ))}
         </div>
       </div>
