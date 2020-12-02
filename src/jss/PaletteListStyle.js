@@ -1,6 +1,22 @@
 import sizes from "./mediaSizes";
 import svg from "./Sun-Tornado.svg";
 export default {
+  "@global": {
+    ".fade-exit": {
+      opacity: 1,
+    },
+    ".fade-exit-active": {
+      opacity: 0,
+      transition: "opacity 500ms ease-out",
+    },
+    ".fade-enter": {
+      opacity: 0,
+    },
+    ".fade-enter-active": {
+      opacity: 1,
+      transition: "opacity 500ms ease-in",
+    },
+  },
   root: {
     height: "100vh",
     display: "flex",

@@ -7,7 +7,7 @@ const MiniPalette = ({
   classes: { root, color, title, emojis, miniColor, deleteIcon },
   palette: { paletteName, emoji, colors, id },
   history,
-  deletePalette,
+  openDialog,
 }) => {
   const miniColorsBoxes = colors.map((color) => (
     <div
@@ -25,7 +25,8 @@ const MiniPalette = ({
 
   const onRemovePalette = (e) => {
     e.stopPropagation();
-    deletePalette(id);
+    // deletePalette(id);
+    openDialog(id);
   };
 
   return (
