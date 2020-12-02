@@ -1,3 +1,4 @@
+import sizes from "./mediaSizes";
 export default {
   navbar: {
     display: "flex",
@@ -17,6 +18,9 @@ export default {
     "& a": {
       textDecoration: "none",
       color: "#000",
+    },
+    [sizes.down("xs")]: {
+      display: "none",
     },
   },
   slider: {
@@ -39,6 +43,9 @@ export default {
       width: "13px",
       marginLeft: "-7px",
       marginTop: "-3px",
+    },
+    [sizes.down("md")]: {
+      width: "150px",
     },
   },
   selectContainer: {

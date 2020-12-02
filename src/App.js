@@ -20,6 +20,7 @@ function App() {
     setPalettes(palettes.filter(({ id }) => id !== pid));
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const syncToLocal = () => {
     if (localStorage.palettes) {
       localStorage.removeItem("palettes");
