@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "../jss/PaletteListStyle";
 
 const PaletteList = ({
-  classes: { root, container, nav, paletteGrid },
+  classes: { root, container, nav, paletteGrid, heading },
   palettes,
   deletePalette,
 }) => {
@@ -13,7 +13,7 @@ const PaletteList = ({
     <div className={root}>
       <div className={container}>
         <nav className={nav}>
-          <h1>React Colors</h1>
+          <h1 className={heading}>React Colors</h1>
           <Link to="/palette/new">Create Palettes</Link>
         </nav>
         <div className={paletteGrid}>
