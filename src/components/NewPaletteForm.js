@@ -13,12 +13,12 @@ import arrayMove from "array-move";
 import PaletteFormNav from "./PaletteFormNav";
 import ColorPicker from "./ColorPicker";
 import styles from "../jss/NewPaletteFormStyles";
+import SeedColors from "../seed";
 
 const NewPaletteForm = ({ classes, savePalette, history, palettes, max }) => {
-  // const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [currentColor, setColor] = useState("purple");
-  const [colors, setArrcolors] = useState(palettes[0].colors);
+  const [colors, setArrcolors] = useState(SeedColors[0].colors);
   const [pcName, setPC] = useState({
     colorName: "",
     palettesName: "",
@@ -114,13 +114,25 @@ const NewPaletteForm = ({ classes, savePalette, history, palettes, max }) => {
   };
 
   const onRandom = () => {
-    const allColors = palettes.map((p) => p.colors).flat();
-    const rand = Math.floor(Math.random() * allColors.length);
-    const randomColor = allColors[rand];
-    // console.log(randomColor);
+    const allColors =
+      palettes.length === 0
+        ? SeedColors.map((p) => p.colors).flat()
+        : palettes.map((p) => p.colors).flat();
+    let rand;
+    let randomColor;
+    let colorIsDuplicate = true;
+    while (colorIsDuplicate) {
+      rand = Math.floor(Math.random() * allColors.length);
+      randomColor = allColors[rand];
+      colorIsDuplicate = colors.some(
+        (color) => color.name === randomColor.name
+      );
+      console.log(randomColor);
+    }
+
     setArrcolors([...colors, randomColor]);
   };
-  //   console.log(color);
+
   return (
     <div className={classes.root}>
       {/*nav bar  */}
@@ -192,6 +204,7 @@ const NewPaletteForm = ({ classes, savePalette, history, palettes, max }) => {
           colors={colors}
           axis="xy"
           onSortEnd={onSortEnd}
+          distance={20}
         />
       </main>
     </div>

@@ -25,8 +25,7 @@ export default {
     /* background by SVGBackgrounds.com */
     backgroundColor: "#03a2ec",
     backgroundImage: `url(${svg})`,
-    overflow: "overlay",
-    paddingBottom: "2rem",
+    overflowY: "overlay",
   },
 
   container: {

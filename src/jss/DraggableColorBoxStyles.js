@@ -1,4 +1,5 @@
 import sizes from "./mediaSizes";
+import Chroma from "chroma-js";
 
 const styles = {
   root: {
@@ -32,7 +33,10 @@ const styles = {
     left: "0px",
     bottom: "0px",
     padding: "10px",
-    color: "#000",
+    color: ({ color }) =>
+      Chroma(color).luminance() <= 0.2
+        ? "rgba(255,255,255,0.8)"
+        : "rgba(0,0,0,0.65)",
     letterSpacing: "1px",
     textTransform: "uppercase",
     fontSize: "12px",

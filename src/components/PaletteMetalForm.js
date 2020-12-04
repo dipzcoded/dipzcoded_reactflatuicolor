@@ -30,6 +30,7 @@ const PaletteMetalForm = ({
   const savePalette = (emoji) => {
     // console.log(emoji.native);
     onSavePalette(emoji.native);
+    setStage("");
   };
 
   return (
