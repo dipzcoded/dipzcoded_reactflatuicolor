@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f6f73672.chunk.css",
+    "main.js": "/static/js/main.02626af9.chunk.js",
+    "main.js.map": "/static/js/main.02626af9.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7b0dc955.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7b0dc955.js.map",
+    "static/css/2.0da342d8.chunk.css": "/static/css/2.0da342d8.chunk.css",
+    "static/js/2.01e38ade.chunk.js": "/static/js/2.01e38ade.chunk.js",
+    "static/js/2.01e38ade.chunk.js.map": "/static/js/2.01e38ade.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.9db745881903b74fdde6e0a53ff08c24.js": "/precache-manifest.9db745881903b74fdde6e0a53ff08c24.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.0da342d8.chunk.css.map": "/static/css/2.0da342d8.chunk.css.map",
+    "static/css/main.f6f73672.chunk.css.map": "/static/css/main.f6f73672.chunk.css.map",
+    "static/js/2.01e38ade.chunk.js.LICENSE.txt": "/static/js/2.01e38ade.chunk.js.LICENSE.txt",
+    "static/media/Sun-Tornado.svg": "/static/media/Sun-Tornado.0e600c1c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7b0dc955.js",
+    "static/css/2.0da342d8.chunk.css",
+    "static/js/2.01e38ade.chunk.js",
+    "static/css/main.f6f73672.chunk.css",
+    "static/js/main.02626af9.chunk.js"
+  ]
+}
